@@ -22,9 +22,10 @@ a3 = pd.read_excel("./02_03_BSA/a3_r5.xlsx", header = None).iloc[:, 1]
 fAbtast = 1.6516129 * 10**3
 dt = 1 / fAbtast
 nMeas = len(a0)
+tEnd = nMeas * dt
 
-time = np.arange(0, nMeas, dt)
-
+time = np.arange(0, tEnd, dt)
+print(len(a0), len(time))
 
 # Drehzahl des Motors
 #--------------------
