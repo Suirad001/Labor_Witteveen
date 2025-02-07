@@ -24,9 +24,6 @@ dt = 1 / fAbtast
 nMeas = len(a0)
 tEnd = nMeas * dt
 
-time = np.arange(0, tEnd, dt)
-print(len(a0), len(time))
-
 # Drehzahl des Motors
 #--------------------
 def getRot(U):
@@ -34,4 +31,10 @@ def getRot(U):
     n = 572.142857 * U - 93
     return n
 
+# Definition des Spannungsvektors
+Ustart = 0
+Uend = 5
+U = np.linspace(Ustart, Uend, nMeas)
 
+# Bestimmen des Drehzahlvektors
+n = getRot(U)
