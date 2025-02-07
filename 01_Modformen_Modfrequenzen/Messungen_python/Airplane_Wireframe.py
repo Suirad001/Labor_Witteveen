@@ -21,10 +21,10 @@ points0 = np.array([
 # Z-Werte für die verschiedenen Moden
 z_vectors = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  # Grundform
-    [1.281, 0.641, 0.017, -0.587, -1.202, -0.013, 0.017, -0.020, -0.027, 0.790, -0.027, -0.603],    # Mode 1: 5,01 Hz
-    [-0.039, -0.012, 0.019, -0.0143, 0.057, 0.008, 0.019, 0.020, 0.22, 0.883, 0.22, 0.608],         # Mode 2: 20,23 Hz
-    [0.202, 0.215, 0.171, -0.373, -1.179, -0.121, 0.171, 0.466, 0.563, -3.336, 0.563, -2.808],         # Mode 3: 46,2 Hz
-    [0.224, -0.081, -0.102, -0.386, -0.649, 0.1340, -0.102, -0.391, -0.483, 11.076, -0.483, -8.212]    # Mode 4: 49,8 Hz
+    [1.281, 0.641, 0.017, -0.587, -1.202, -0.013, 0.017, -0.020, -0.027, 0.790, -0.027, -0.603],            # Mode 1: 5,01 Hz
+    [0.036, -0.012, 0.019, -0.0143, 0.057, 0.008, 0.019, 0.020, 0.061, 0.883, 0.061, 0.608],                # Mode 2: 20,23 Hz
+    [-0.121, 0.215, 0.171, -0.373, -1.179, -0.121, 0.171, 0.466, 0.363, -3.336, 0.363, -2.808],             # Mode 3: 46,2 Hz
+    [0.224, -0.081, -0.102, -0.386, -0.649, 0.1340, -0.102, -0.391, -0.483, 11.076/10, -0.483, -8.212/10]   # Mode 4: 49,8 Hz (Die punkte von der Finne wurden skaliert (diviediert durch 10))
 ]
 
 colors = ['black', 'red', 'blue', 'green','pink']  # Farben für jedes Flugzeug
@@ -61,6 +61,7 @@ for i, z_vector in enumerate(z_vectors[1:]):  # Nur Mode 1, Mode 2 und Mode 3
     ax.set_title(f'Mode {i+1}: {labels[i+1]}')
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
+    ax.set_zlabel('Imaginärteil')
 
     # Berechnung der z-Achsen-Grenzen automatisch basierend auf den z-Daten
     z_min = min(np.min(z_vectors[0]), np.min(z_vector))
