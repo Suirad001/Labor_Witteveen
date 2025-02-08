@@ -6,7 +6,7 @@ import os
 
 print(os.getcwd())
 # Daten einlesen aus einer Excel-Datei
-data = pd.read_excel(r"C:\Users\1999d\OneDrive\Desktop\Labor_Witteveen\04_Einfluss_Massen\2_Komb_1r_5r_3.xlsx", header=None).iloc[1:, 0:3].values
+data = pd.read_excel(r"C:\Users\1999d\OneDrive\Desktop\Labor_Witteveen\04_Einfluss_Massen\8_Komb_1r_5r_3.xlsx", header=None).iloc[1:, 0:3].values
 
 # Zeit (1. Spalte), Hammermessung (2. Spalte) und Beschleunigung (3. Spalte)
 time = data[:, 0]        # Zeit
@@ -33,7 +33,7 @@ phase = np.angle(transfer_function)  # Phase der Übertragungsfunktion
 output_data = np.column_stack([time, fVec, force, acceleration, real_part, imag_part, magnitude, phase])
 
 # Speichern in eine Excel-Datei
-pd.DataFrame(output_data, columns=["Time", "Frequenz", "Force", "Acceleration", "Real Part", "Imaginary Part", "Magnitude", "Phase"]).to_excel("2_Komb_1r_5r_3.Python.xlsx", index=False)
+pd.DataFrame(output_data, columns=["Time", "Frequenz", "Force", "Acceleration", "Real Part", "Imaginary Part", "Magnitude", "Phase"]).to_excel("8_Komb_1r_5r_3.Python.xlsx", index=False)
 
 # 5. Grafische Darstellung
 
