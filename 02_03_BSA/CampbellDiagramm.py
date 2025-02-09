@@ -14,15 +14,11 @@ import matplotlib.pyplot as plt
 #===========================
 
 # Fkt. zum Einlesen der Beschleunigungen
+#---------------------------------------
 def readMeas(name):
-    # Excel einlesen
-    a = pd.read_excel(name, header = None).iloc[1:, 1]
-
-    # In numpy-Array umwandeln
-    a = np.array(a)
-
-    # Einträge alle zu float machen
-    a = a.astype(float)
+    a = pd.read_excel(name, header = None).iloc[1:, 1]  # Excel einlesen
+    a = np.array(a)                        # In numpy-Array umwandeln
+    a = a.astype(float)                    # Einträge alle zu float machen
 
     return a
 
@@ -42,27 +38,29 @@ a3 = readMeas("./02_03_BSA/a3_r5.xlsx")
 fAbtast = 1.6516129 * 10**3
 f, t_stft, A0 = stft(a0, fAbtast, nperseg=500, window="hamming")
 
-# Drehzahl des Motors
-#--------------------
+# Fkt. zur Bestimmung der Drehzahl des Motors
+#--------------------------------------------
 def getRot(U):
     # Lineare Interpolation zw. 2 Messwerten
     n = 572.142857 * U - 93
     return n
 
 # Definition des Spannungsvektors
+#--------------------------------
 Ustart = 0
 Uend = 5
 U = np.linspace(Ustart, Uend, len(t_stft))
 
 # Bestimmen des Drehzahlvektors
+#------------------------------
 n = getRot(U)
 
 # STFT plotten
 #-------------
 plt.pcolormesh(n, f, np.abs(A0), cmap="jet")
 plt.ylabel('Frequenz [Hz]')
-plt.xlabel('Drehzahl [min^-1]')
-plt.title('Short-Time Fourier Transform (STFT)')
+plt.xlabel('Drehzahl [U/min]')
+plt.title('Campbell-Diagramm für a0')
 plt.colorbar(label='Amplitude')
 plt.show()
 
