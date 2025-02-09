@@ -13,20 +13,25 @@ import matplotlib.pyplot as plt
 # 1 - Einlesen der Messdaten
 #===========================
 
+# Fkt. zum Einlesen der Beschleunigungen
+def readMeas(name):
+    # Excel einlesen
+    a = pd.read_excel(name, header = None).iloc[1:, 1]
+
+    # In numpy-Array umwandeln
+    a = np.array(a)
+
+    # Einträge alle zu float machen
+    a = a.astype(float)
+
+    return a
+
 # Beschleunigungen der Messpunkte
 #--------------------------------
-a0 = pd.read_excel("./02_03_BSA/a0_1r.xlsx", header = None).iloc[1:, 1]
-a0 = np.array(a0)
-a0 = a0.astype(float)
-
-a1 = pd.read_excel("./02_03_BSA/a1_r2.xlsx", header = None).iloc[1:, 1]
-a1 = np.array(a1)
-
-a2 = pd.read_excel("./02_03_BSA/a2_r4.xlsx", header = None).iloc[1:, 1]
-a2 = np.array(a2)
-
-a3 = pd.read_excel("./02_03_BSA/a3_r5.xlsx", header = None).iloc[1:, 1]
-a3 = np.array(a3)
+a0 = readMeas("./02_03_BSA/a0_1r.xlsx")
+a1 = readMeas("./02_03_BSA/a1_r2.xlsx")
+a2 = readMeas("./02_03_BSA/a2_r4.xlsx")
+a3 = readMeas("./02_03_BSA/a3_r5.xlsx")
 #============================================================================
 
 # 2 - Transformation in den Freq.-Bereich
