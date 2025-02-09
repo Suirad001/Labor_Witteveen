@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 from scipy.interpolate import (griddata, Rbf)
+from scipy.signal import stft
 import matplotlib.pyplot as plt
 
 #====================================================================#
@@ -26,18 +27,15 @@ a2 = np.array(a2)
 
 a3 = pd.read_excel("./02_03_BSA/a3_r5.xlsx", header = None).iloc[1:, 1]
 a3 = np.array(a3)
-#----------------------------------------------------------------------------
+#============================================================================
 
-# Zeitvektor
-#-----------
+# 2 - Transformation in den Freq.-Bereich
+#========================================
+
+# Shortterm-FFT
+#--------------
 fAbtast = 1.6516129 * 10**3
-dt = 1 / fAbtast
-nMeas = len(a0)
-tStart = 0
-tEnd = nMeas * dt
-
-time = np.arange(tStart, tEnd, dt)
-#----------------------------------------------------------------------------
+f, t_stft, A0 = stft(a0, fAbtast, nperseg=500, window="hamming")
 
 # Drehzahl des Motors
 #--------------------
@@ -49,36 +47,66 @@ def getRot(U):
 # Definition des Spannungsvektors
 Ustart = 0
 Uend = 5
-U = np.linspace(Ustart, Uend, nMeas)
+U = np.linspace(Ustart, Uend, len(t_stft))
 
 # Bestimmen des Drehzahlvektors
 n = getRot(U)
-#============================================================================
 
-# 2 - Transformation in den Freq.-Bereich
-#========================================
+# STFT plotten
+#-------------
+plt.pcolormesh(n, f, np.abs(A0), cmap="jet")
+plt.ylabel('Frequenz [Hz]')
+plt.xlabel('Drehzahl [min^-1]')
+plt.title('Short-Time Fourier Transform (STFT)')
+plt.colorbar(label='Amplitude')
+plt.show()
 
-# Erstellen des Frequenzvektors
-#------------------------------
-fStart = 0
-df = 1 / (nMeas * dt)
-freq = np.arange(fStart, nMeas, df)
+
+
+
+
+
+#==========================================================================#
+#                           EVT. DOCH BENÖTIGT                             #
+#==========================================================================#
+
+# Zeitvektor
+#-----------
+# fAbtast = 1.6516129 * 10**3
+# dt = 1 / fAbtast
+# nMeas = len(a0)
+# tStart = 0
+# tEnd = nMeas * dt
+
+# time = np.arange(tStart, tEnd, dt)
 
 # Funktion zum Aufsplitten eines Vektors
 #---------------------------------------
-def splitVec(vec, size):
-    return np.array_split(vec, np.ceil(len(time) / size))
+# def splitVec(vec, size):
+#     return np.array_split(vec, np.ceil(len(time) / size))
 
-# Aufteilen des Zeit- und Beschl.-vektors
-#----------------------------------------
-splitSize = 100
-timeSplit = splitVec(time, splitSize)
-a0Split = splitVec(a0, splitSize)
+# # Aufteilen des Zeit- und Beschl.-vektors
+# #----------------------------------------
+# splitSize = 1000
+# timeSplit = splitVec(time, splitSize)
+# a0Split = splitVec(a0, splitSize)
+
+# # Erstellen des Frequenzvektors
+# #------------------------------
+# fStart = 0
+# df = 1 / (nMeas * dt)
+# freq = np.arange(fStart, nMeas, df)
 
 # Transformation in den Frequenzbereich
 #--------------------------------------
-A0 = np.fft.fft(a0Split[0])
+# Anlegen einer 0-Matrix (n = Länge eines Subvektors, m = Anz. Subvektoren)
+# A00 = np.zeros((splitSize, len(a0Split)))
 
-plt.figure(figsize=(12,6))
-plt.plot(freq[0:100], abs(A0))
-plt.show()
+# # Schleife über alle Subvektoren -> FFT
+# for i in range(splitSize):
+#     # Ablegen der FFT-transformierten Beschl. in den Spalten der Matrix
+#     A00[:, i] = np.fft.fft(a0Split[i])
+
+# plt.figure(figsize=(12,6))
+# plt.plot(freq, abs(A00[:, 8]))
+# plt.show()
