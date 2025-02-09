@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 #--------------------------------
 a0 = pd.read_excel("./02_03_BSA/a0_1r.xlsx", header = None).iloc[1:, 1]
 a0 = np.array(a0)
-a0.astype(float)
+a0 = a0.astype(float)
 
 a1 = pd.read_excel("./02_03_BSA/a1_r2.xlsx", header = None).iloc[1:, 1]
 a1 = np.array(a1)
@@ -58,6 +58,12 @@ n = getRot(U)
 # 2 - Transformation in den Freq.-Bereich
 #========================================
 
+# Erstellen des Frequenzvektors
+#------------------------------
+fStart = 0
+df = 1 / (nMeas * dt)
+freq = np.arange(fStart, nMeas, df)
+
 # Funktion zum Aufsplitten eines Vektors
 #---------------------------------------
 def splitVec(vec, size):
@@ -68,3 +74,11 @@ def splitVec(vec, size):
 splitSize = 100
 timeSplit = splitVec(time, splitSize)
 a0Split = splitVec(a0, splitSize)
+
+# Transformation in den Frequenzbereich
+#--------------------------------------
+A0 = np.fft.fft(a0Split[0])
+
+plt.figure(figsize=(12,6))
+plt.plot(freq[0:100], abs(A0))
+plt.show()
