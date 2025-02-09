@@ -2,6 +2,8 @@
 #===============================
 import numpy as np
 import pandas as pd
+from scipy.interpolate import (griddata, Rbf)
+import matplotlib.pyplot as plt
 
 #====================================================================#
 #                         CAMPBELL-DIAGRAMM                          #
@@ -12,10 +14,18 @@ import pandas as pd
 
 # Beschleunigungen der Messpunkte
 #--------------------------------
-a0 = pd.read_excel("./02_03_BSA/a0_1r.xlsx", header = None).iloc[:, 1]
-a1 = pd.read_excel("./02_03_BSA/a1_r2.xlsx", header = None).iloc[:, 1]
-a2 = pd.read_excel("./02_03_BSA/a2_r4.xlsx", header = None).iloc[:, 1]
-a3 = pd.read_excel("./02_03_BSA/a3_r5.xlsx", header = None).iloc[:, 1]
+a0 = pd.read_excel("./02_03_BSA/a0_1r.xlsx", header = None).iloc[1:, 1]
+a0 = np.array(a0)
+
+a1 = pd.read_excel("./02_03_BSA/a1_r2.xlsx", header = None).iloc[1:, 1]
+a1 = np.array(a1)
+
+a2 = pd.read_excel("./02_03_BSA/a2_r4.xlsx", header = None).iloc[1:, 1]
+a2 = np.array(a2)
+
+a3 = pd.read_excel("./02_03_BSA/a3_r5.xlsx", header = None).iloc[1:, 1]
+a3 = np.array(a3)
+#----------------------------------------------------------------------------
 
 # Zeitvektor
 #-----------
@@ -26,15 +36,7 @@ tStart = 0
 tEnd = nMeas * dt
 
 time = np.arange(tStart, tEnd, dt)
-
-# Frequenzvektor
-#---------------
-df = 1 / (nMeas * dt)
-fStart = 0
-fEnd = nMeas * df
-
-freq = np.arange(fStart, fEnd, df)
-
+#----------------------------------------------------------------------------
 
 # Drehzahl des Motors
 #--------------------
@@ -50,3 +52,5 @@ U = np.linspace(Ustart, Uend, nMeas)
 
 # Bestimmen des Drehzahlvektors
 n = getRot(U)
+#============================================================================
+
