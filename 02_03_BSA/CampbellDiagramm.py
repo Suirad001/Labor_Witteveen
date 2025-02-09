@@ -28,15 +28,13 @@ a0 = readMeas("./02_03_BSA/a0_1r.xlsx")
 a1 = readMeas("./02_03_BSA/a1_r2.xlsx")
 a2 = readMeas("./02_03_BSA/a2_r4.xlsx")
 a3 = readMeas("./02_03_BSA/a3_r5.xlsx")
+
+# Liste mit Beschleunigungen
+a = [a0, a1, a2, a3]
 #============================================================================
 
 # 2 - Transformation in den Freq.-Bereich
 #========================================
-
-# Shortterm-FFT
-#--------------
-fAbtast = 1.6516129 * 10**3
-f, t_stft, A0 = stft(a0, fAbtast, nperseg=500, window="hamming")
 
 # Fkt. zur Bestimmung der Drehzahl des Motors
 #--------------------------------------------
@@ -45,24 +43,45 @@ def getRot(U):
     n = 572.142857 * U - 93
     return n
 
-# Definition des Spannungsvektors
+# Festlegen der Abtastfrequenz
+#-----------------------------
+fAbtast = 1.6516129 * 10**3
+
+# Definieren der Spannungsgrenzen
 #--------------------------------
 Ustart = 0
 Uend = 5
-U = np.linspace(Ustart, Uend, len(t_stft))
 
-# Bestimmen des Drehzahlvektors
-#------------------------------
-n = getRot(U)
+# Definieren einer Laufvariable
+i = 0
 
-# STFT plotten
-#-------------
-plt.pcolormesh(n, f, np.abs(A0), cmap="jet")
-plt.ylabel('Frequenz [Hz]')
-plt.xlabel('Drehzahl [U/min]')
-plt.title('Campbell-Diagramm für a0')
-plt.colorbar(label='Amplitude')
-plt.show()
+for acc in a:
+    # Shortterm-FFT
+    #--------------
+    f, t_stft, A = stft(acc, fAbtast, nperseg=500, window="hamming")
+
+    # Bestimmen des Spannungsvektors
+    #-------------------------------
+    U = np.linspace(Ustart, Uend, len(t_stft))
+
+    # Bestimmen des Drehzahlvektors
+    #------------------------------
+    n = getRot(U)
+
+    # Mitzählen der Messpunkte
+    i = i + 1
+
+    # STFT plotten -> Campbell-Diagramm
+    #----------------------------------
+    fig = plt.figure(figsize=(12,8))
+    
+    plt.pcolormesh(n, f, np.abs(A), cmap="jet")
+    plt.ylabel('Frequenz [Hz]')
+    plt.xlabel('Drehzahl [U/min]')
+    plt.title(f'Campbell-Diagramm für Messpunkt {i}')
+    plt.colorbar(label='Amplitude')
+
+    plt.show()
 
 
 
