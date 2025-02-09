@@ -1,0 +1,148 @@
+% Inkludieren benötigter Packages
+% ===============================
+\documentclass[liststotoc, bibtotoc, pointlessnumbers, a4paper,
+12pt]{scrreport}
+% benötigte Packages für deutsche Texte
+\usepackage[ngerman]{babel} % Deutsche Einstellungen
+\usepackage[utf8]{inputenc} % utf-8 Eingabe
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+
+% Packages für mathemaische Formelsätze
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fleqn}
+\setlength{\mathindent}{1cm}
+
+% Packages zum Einbinden von Bildern
+\usepackage{graphicx}
+\usepackage{float}
+
+% Package für Tabellenumgebung
+\usepackage{booktabs}
+
+% Packages zum Einlesen von Scilab-Code
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor = \color{backcolour},   
+	commentstyle = \color{codegreen},
+	keywordstyle = \color{magenta},
+	numberstyle = \tiny\color{codegray},
+	stringstyle = \color{codepurple},
+	basicstyle = \ttfamily\scriptsize,
+	breakatwhitespace = false,         
+	breaklines = true,                 
+	captionpos = b,                    
+	keepspaces = true,                 
+	numbers = left,                    
+	numbersep = 5pt,                  
+	showspaces = false,                
+	showstringspaces = false,
+	showtabs = false,                  
+	tabsize = 2
+}
+
+\lstset{literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+}
+
+\lstset{style=mystyle}
+
+% Packages für die Zitation
+\usepackage[backend = bibtex,
+style = numeric,
+bibstyle = numeric,
+citestyle = numeric,
+natbib = false,
+mcite = false,
+maxcitenames = 3,
+sorting = nyt]{biblatex}
+\addbibresource{Bibliography.bib}
+
+% Will man die Bilder aus einem eigenen Ordner aufrufen -> Pfad muss angegeben werden
+\graphicspath{{Bilder/}}
+
+% Definieren des Aufzählungssymbols
+\def\labelitemi{--}
+
+%==============================================================================
+% 							  Hauptdokument
+%==============================================================================
+
+\begin{document}
+	% Titelblatt und Inhaltsverzeichnis
+	% ---------------------------------
+	\begin{titlepage}
+		\centering
+		\includegraphics[width=0.7\textwidth]{FH.png}\par
+		\vspace{2.5cm}
+		\Huge\textbf{PRT3LB - DOE: Schüttgutdichte}\par
+		\vspace{1cm}
+		\hrule
+		\vspace{2cm}
+		\begin{center}
+			\begin{tabular}{ll}
+				\large Darius Faje			&	\large S2310566006	\\
+				\large Erik Großhaupt		&	\large S2310566008	\\
+				\large Lukas Hölzl			&	\large S2310566010	\\	
+			\end{tabular}
+		\end{center}\par
+		%
+		\vspace{2 cm}
+		%
+		\large\today\par
+		\large FH-OÖ Campus Wels \par
+		\large MB.ma \par
+	\end{titlepage}
+	%
+	\newpage
+	%
+	\tableofcontents
+	%
+	\newpage
+	%--------------------------------------------------------------------------
+%%----------------------------------------------------------------------------
+	\clearpage
+%%----------------------------------------------------------------------------
+%% Einleitung	
+	\input{Text/0101-Einleitung}
+%%----------------------------------------------------------------------------
+%% Hauptkapitel 1
+	\input{Text/0201-Hauptkapitel01}
+%%----------------------------------------------------------------------------
+%% Hauptkapitel 2
+	\input{Text/0301-Hauptkapitel02}
+%%----------------------------------------------------------------------------
+%% Hauptkapitel 3
+	\input{Text/0401-Hauptkapitel03}
+%%----------------------------------------------------------------------------
+%% Zusammenfassung
+	\input{Text/0501-Zusammenfassung}
+%%----------------------------------------------------------------------------
+%% Abbildungsverzeichnis
+	\clearpage
+	\input{Text/9003-Abbildungsverzeichnis}
+%%----------------------------------------------------------------------------
+%% Formelverzeichnis
+	\clearpage
+	\input{Text/9005-Formelverzeichnis}
+%%----------------------------------------------------------------------------
+%% Literaturverzeichnis
+	\clearpage
+	\input{Text/9006-Literaturverzeichnis}
+%%============================================================================	
+\end{document}
+%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
