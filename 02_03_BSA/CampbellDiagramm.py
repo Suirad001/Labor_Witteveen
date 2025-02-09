@@ -63,6 +63,8 @@ n = getRot(U)
 def splitVec(vec, size):
     return np.array_split(vec, np.ceil(len(time) / size))
 
-# Unterteilen des Zeitvektors
-#----------------------------
-timeSplit = splitVec(time, 100)
+# Aufteilen des Zeit- und Beschl.-vektors
+#----------------------------------------
+splitSize = 100
+timeSplit = splitVec(time, splitSize)
+a0Split = splitVec(a0, splitSize)
