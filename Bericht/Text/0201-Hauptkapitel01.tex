@@ -103,8 +103,19 @@
             Messkarte & ... & ... \\
             \hline
         \end{tabular}
-    \end{table}
+    \end{table}    
 %================================================================================
 
 \section{Ergebnisse}
 %===================
+    % Bestimmen der Moden
+    %--------------------
+    Die Berechnung der Übertragungsfunktionen erfolgt über ein Python-Skript.
+    Dieses liest die Messergebnisse, die mit Labview in ein  Excelfile
+    gespeichert wurden ein, transformiert diese in den Frequenzbereich und
+    bestimmt dann die Übertragungsfunktion. Anscließend werden die Ergebnisse
+    wieder in ein Excelfile rausgeschrieben. 
+    Die Moden des Flugzeugs können anschließend durch Betrachtung der
+    Übertragungsfunktionen bestimmt werden. Um die Frequenzlage zu bestimmen,
+    wird im Bereich der im Plot betrachteten Moden ein Maximum gesucht.
+    Es ergeben sich folgende Moden bei den jeweiligen Frequenzen:
