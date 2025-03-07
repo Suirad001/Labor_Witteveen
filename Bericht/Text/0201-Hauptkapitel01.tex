@@ -108,14 +108,49 @@
 
 \section{Ergebnisse}
 %===================
-    % Bestimmen der Moden
-    %--------------------
+    % Berechnen der Übertragungsfunktion
+    %-----------------------------------
     Die Berechnung der Übertragungsfunktionen erfolgt über ein Python-Skript.
     Dieses liest die Messergebnisse, die mit Labview in ein  Excelfile
     gespeichert wurden ein, transformiert diese in den Frequenzbereich und
-    bestimmt dann die Übertragungsfunktion. Anscließend werden die Ergebnisse
-    wieder in ein Excelfile rausgeschrieben. 
-    Die Moden des Flugzeugs können anschließend durch Betrachtung der
+    bestimmt dann die Übertragungsfunktion. Anschließend werden die Ergebnisse
+    wieder in ein Excelfile rausgeschrieben.
+    \\
+    %----------------------------------------------------------------------------
+
+    % Bestimmen der Moden
+    %--------------------
+    \noindent
+    Die Moden des Flugzeugs können nun durch Betrachtung der
     Übertragungsfunktionen bestimmt werden. Um die Frequenzlage zu bestimmen,
-    wird im Bereich der im Plot betrachteten Moden ein Maximum gesucht.
-    Es ergeben sich folgende Moden bei den jeweiligen Frequenzen:
+    wird der Bereich, in dem im Plot der Übertragungsfunktionen ein Mode
+    vermutetet wird, genauer betrachtet. Im Falle der Amplitude wird ein
+    Maximum in diesem Bereich gesucht. Bei Betrachtung des Imaginärteils wird der
+    größte Absolutwert im Bereich verwendet und bei Betrachtung des Realteils
+    wird ein Nulldurchgang gesucht. Dieser Vorgang wird für jede
+    Übertragungsfunktion durchgeführt. Die sich dadurch ergebenden
+    Frequenzlagen werden zu einem Mittelwert zusammengefasst. Somit ergeben sich
+    3 gemittelte Frequenzlagen der Moden, einmal aus der Amplitude, einmal aus 
+    dem Imaginärteil und aus dem Realteil. Im Anschluss werden diese 3
+    Mittelwerte erneut zu einem Mittelwert zusammengefasst. Es ergeben sich
+    folgende, tieffrequente Moden des Modellflugzeugs:
+    %----------------------------------------------------------------------------
+
+    % Tabelle mit den Moden
+    %----------------------
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Mode}   &   \textbf{Frequenzlage [Hz]}  \\
+            \hline \hline
+            Mode 1  &   5.048 \\
+            \hline
+            Mode 2  &   20.02 \\
+            \hline
+            Mode 3  &   46.34 \\
+            \hline
+            Mode 4  &   49.707 \\
+            \hline            
+        \end{tabular}
+    \end{table}
