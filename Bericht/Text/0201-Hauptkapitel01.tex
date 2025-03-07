@@ -35,7 +35,7 @@
     %-----------------------
     \begin{table}[h]
         \centering
-        \begin{tabular}{|p{3.5cm}|p{3cm}|p{5cm}|}
+        \begin{tabular}{|l|c|c|}
             \hline
             \textbf{Bereich} &   \textbf{Schriftfarbe}    &   \textbf{Anzahl der Messpunkte}   \\
             \hline \hline
@@ -46,6 +46,7 @@
             hintere Flosse  &   blau    &   2   \\
             \hline
         \end{tabular}
+        \caption{Diskretisierung des Modellflugzeugs}
         \label{tab: Fliegerdiskretisierung}
     \end{table}
     %----------------------------------------------------------------------------
@@ -88,7 +89,8 @@
     % Verwendete Geräte
     %------------------
     \noindent
-    Die verwendeten Messgeräte sind in unten stehender Tabelle angeführt:
+    Die verwendeten Messgeräte sind in Tabelle \ref{tab: Geräteliste_EMA}
+    angeführt.
 
     \begin{table}[H]
         \centering
@@ -103,6 +105,8 @@
             Messkarte & ... & ... \\
             \hline
         \end{tabular}
+        \caption{Geräteliste - Experimentelle Modalanalyse}
+        \label{tab: Geräteliste_EMA}
     \end{table}    
 %================================================================================
 
@@ -153,6 +157,8 @@
             Mode 4  &   49.707 \\
             \hline            
         \end{tabular}
+        \caption{Frequenzlage der tieffrequenten Moden}
+        \label{tab: Frequenzlage_Moden}
     \end{table}
     %----------------------------------------------------------------------------
 
@@ -171,3 +177,6 @@
         \caption{Amplitude der Übertragungsfunktionen}
         \label{fig: Amplitudenplot}
     \end{figure}
+    %----------------------------------------------------------------------------
+
+    % 
