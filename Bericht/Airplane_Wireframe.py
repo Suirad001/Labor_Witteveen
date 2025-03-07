@@ -28,7 +28,7 @@ z_vectors = [
 ]
 
 colors = ['black', 'red', 'blue', 'green','pink']  # Farben für jedes Flugzeug
-labels = ['Flugzeug Grundform', '5,01 Hz', '20,23 Hz', '46,23 Hz', '49,23 Hz']  # Labels für die Legende
+labels = ['Flugzeug Grundform', '5,048 [Hz]', '20,02 [Hz]', '46,34 [Hz]', '49,707 [Hz]']  # Labels für die Legende
 
 # Funktion zum Zeichnen eines Flugzeugs
 def plot_aircraft(ax, points, z_values, color, label):
