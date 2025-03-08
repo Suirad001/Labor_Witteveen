@@ -46,13 +46,12 @@
     %------------------
     \noindent
     Obwohl nur ein Sensorsignal ausgewertet werden muss, werden 4
-    Beschleunigungssensoren am vorderen Tragflügel positioniert platziert.
+    Beschleunigungssensoren am vorderen Tragflügel platziert.
     Somit kann mit einem Aufbau und einer Messung sowohl die Aufgabe von Kapitel
     \ref{sec: Hauptkapitel 2} und Kaptiel \ref{sec: Hauptkapitel 3}
     abgewickelt werden. Die Beschleunigungssensoren werden an Punkten 1, 2, 4 und
     5 rot platziert (siehe Abbildung \ref{fig: Sensorpos_BSA}). Im Zuge von
-    Kapitel \ref{sec: Hauptkapitel 2} wird der Messpunkt 5 rot verwendet und in
-    weiterer Folge als Messpunkt 1 bezeichnet.
+    Kapitel \ref{sec: Hauptkapitel 2} wird der Messpunkt 5 rot verwendet.
 
     % Bild - Sensorplatzierung BSA
     %-----------------------------
@@ -67,8 +66,8 @@
     % Fixierung Flieger
     %------------------
     \noindent
-    Damit der Modellflieger bei den Messungen nicht durch die Schwingungen
-    verfahren wird, wird er am Boden fixiert. Dazu werden behelfsmäßige Keile mit
+    Damit der Modellflieger bei den Messungen nicht durch die Anregung
+    verschoben wird, wird er am Boden fixiert. Dazu werden behelfsmäßige Keile mit
     Klebeband am Boden bei den Rädern befestigt.
     \\
     %----------------------------------------------------------------------------
@@ -82,6 +81,7 @@
     gestartet werden. Dabei wird der Elektromotor langsam mit einer Rampe von einer
     Spannung von 0 [V] auf 5 [V] beschleunigt. Während der Messung wird der
     Elektromotor in der Hand gehalten.
+    \\
     %----------------------------------------------------------------------------
 
     % Drehzahlmessung
@@ -153,20 +153,22 @@
 %================================================================================
 
 \section{Ergebnisse}
+%===================
     % Campbell-Diagramm
     %------------------
     Mit den Daten aus den Versuchen kann nun über ein Python-Skript ein
     Campbell-Diagramm erstellt werden (siehe Anhang \ref{sec: Anhang_BSA}). Das
     Skript erstellt für alle 4 Messpunkte ein Diagramm, allerdings wird in der
-    Auswertung hier nur Messpunkt 1 (5 rot) betrachet. Das zugehörige
-    Campbell-Diagramm ist in Abbildung \ref{fig: Campbell_Diagramm} dargestellt.
+    Auswertung hier nur der Messpunkt \glqq 5 rot\grqq \hspace{0.05cm} betrachet.
+    Das zugehörige Campbell-Diagramm ist in Abbildung
+    \ref{fig: Campbell_Diagramm} dargestellt.
 
     % Bild - Campbell-Diagramm
     %-------------------------
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.2\textwidth]{Campbell_Diagramm_MP1.png}
-        \caption{Campbell-Diagramm Messpunkt 1}
+        \caption{Campbell-Diagramm Messpunkt \glqq 5 rot\grqq}
         \label{fig: Campbell_Diagramm}
     \end{figure}
     %----------------------------------------------------------------------------
