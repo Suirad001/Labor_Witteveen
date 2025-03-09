@@ -7,14 +7,14 @@
     %---------------------
     Bei dieser Laboraufgabe sollen die tieffrequenten Schwingungsmoden des
     Modellflugzeugs bestimmt werden. Die Bestimmung der Moden soll mittels
-    experimenteller Modalanalyse durchgeführt werden.
+    experimenteller Modalanalyse erfolgen.
     \\
     %----------------------------------------------------------------------------
 
     % Ausdetaillierung
     %-----------------
     \noindent
-    Es soll dabei bei der Bestimmung der Übertragungsfunktionen kein fertiger
+    Außerdem soll dabei bei der Bestimmung der Übertragungsfunktionen kein fertiger
     FRF-Block von Labview verwendet werden. Stattdessen sollen die
     Übertragungsfunktionen durch Division des gemessenen Ausgangs- durch
     Eingangssignals bestimmt werden.
@@ -25,7 +25,7 @@
     % Diskretisierung des Fliegers
     %-----------------------------
     Da die Messung nur an jeweils einzelnen Punkten durchgeführt werden kann,
-    wird in einem ersten Schritt der Modllflieger diskretisiert. Die Messpunkte
+    wird in einem ersten Schritt der Modellflieger diskretisiert. Die Messpunkte
     werden dabei mittels Klebenband gekennzeichnet und über Nummern
     unterschieden. Bei der Diskretisierung wird das Modellflugzeug in 3 Bereiche
     unterteilt.
@@ -84,6 +84,7 @@
     Hammer verwendet. Der Beschleunigungssensor bleibt somit immer an Position
     \glqq 5 rot\grqq \hspace{0.05cm} am vorderen Tragflügel (siehe Abbildung
     \ref{fig: Flieger_diskretisiert}).
+    \\
     %----------------------------------------------------------------------------
 
     % Verwendete Geräte
@@ -94,15 +95,17 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|l|l|l|}
+        \begin{tabular}{|l|l|p{6cm}|}
             \hline
-            \textbf{Gerät}  &   \textbf{Seriennummer}   &   \textbf{Sensordaten} \\
+            \textbf{Gerät}  &   \textbf{Gerätename}   &   \textbf{Sensordaten} \\
             \hline \hline
-            Beschleunigungssensor & ... & ... \\
+            CompaqDAQ Chassis & cDAQ-9171 & hostpowered \\
             \hline
-            Impulshammer & ... & ... \\
+            CompaqDAQ Modul & NI 9234 & 4 Kanäle, ±5 V, 51,2 kS/s pro Kanal, 24 bit-IEPE  \\
             \hline
-            Messkarte & ... & ... \\
+            Beschleunigungssensor & 8702B25 & Kistler, Piezo, ±25g, 1 Hz-9 kHz, UniAx, 200 mV/g  \\
+            \hline
+            Impulshammer & 086C03 & PCB, 2-20 mA, 2224 N, 160 gr.  \\
             \hline
         \end{tabular}
         \caption{Geräteliste - Experimentelle Modalanalyse}
@@ -114,7 +117,8 @@
 %===================
     % Berechnen der Übertragungsfunktion
     %-----------------------------------
-    Die Berechnung der Übertragungsfunktionen erfolgt über ein Python-Skript.
+    Die Berechnung der Übertragungsfunktionen erfolgt über ein Python-Skript
+    (siehe Anhang \ref{sec: Anhang_EMA}).
     Dieses liest die Messergebnisse, die mit Labview in ein  Excelfile
     gespeichert wurden ein, transformiert diese in den Frequenzbereich und
     bestimmt dann die Übertragungsfunktion. Anschließend werden die Ergebnisse
@@ -137,7 +141,7 @@
     3 gemittelte Frequenzlagen der Moden, einmal aus der Amplitude, einmal aus 
     dem Imaginärteil und aus dem Realteil. Im Anschluss werden diese 3
     Mittelwerte erneut zu einem Mittelwert zusammengefasst. Es ergeben sich
-    folgende, tieffrequente Moden des Modellflugzeugs:
+    folgende Frequenzlagen für die tieffrequenten Moden des Modellflugzeugs:
     %----------------------------------------------------------------------------
 
     % Tabelle mit den Moden
@@ -173,7 +177,7 @@
     %----------------------
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.95\textwidth]{Amplitudenplot.png}
+        \includegraphics[width=1\textwidth]{Amplitudenplot.png}
         \caption{Amplitude der Übertragungsfunktionen}
         \label{fig: Amplitudenplot}
     \end{figure}
@@ -233,13 +237,19 @@
     Mode des Modellflugzeugs um einen Starrkörpermoden handelt, bei dem der
     Flieger um die Rumpfachse gedreht wird. Auch der 2. Mode
     (siehe Abbildung \ref{fig: Modeform_2}) lässt sich gut als
-    \glqq Vogelmode\grqq \hspace{0.05cm} identifizieren. Die Formen des 3. und 4.
-    Moden müssen jedoch mit einer gewissen Skepsis betrachtet werden. Wie aus
-    Abbildung \ref{fig: Amplitudenplot} hervorgeht, liegen diese beiden Moden
-    relativ nahe beieinander. Da zur Bestimmung der Modeform gut separierte
-    Moden angenommen werden, ist nicht klar, ob diese Annahme auch für den 3.
-    und 4. Moden zulässig ist. Somit kann nicht garantiert werden, dass die in
-    den Abbildungen \ref{fig: Modeform_3} und \ref{fig: Modeform_4}
-    dargestellten Modeformen auch tatsächlich nur von einem einzelnen Mode
-    herrühren. Vielmehr muss angenommen werden, dass es sich um einen
-    kombinierten Einfluss von Mode 3 und Mode 4 handelt.
+    \glqq Vogelmode\grqq \hspace{0.05cm} identifizieren.
+    \\
+    %----------------------------------------------------------------------------
+    
+    % 3. und 4. Mode
+    %---------------
+    \noindent
+    Die Formen des 3. und 4. Moden müssen jedoch mit einer gewissen Skepsis
+    betrachtet werden. Wie aus Abbildung \ref{fig: Amplitudenplot} hervorgeht,
+    liegen diese beiden Moden relativ nahe beieinander. Da zur Bestimmung der
+    Modeform gut separierte Moden angenommen werden, ist nicht klar, ob diese
+    Annahme auch für den 3. und 4. Moden zulässig ist. Somit kann nicht garantiert
+    werden, dass die in den Abbildungen \ref{fig: Modeform_3} und
+    \ref{fig: Modeform_4} dargestellten Modeformen auch tatsächlich nur von einem
+    einzelnen Mode herrühren. Vielmehr muss angenommen werden, dass es sich um
+    einen kombinierten Einfluss von Mode 3 und Mode 4 handelt.
