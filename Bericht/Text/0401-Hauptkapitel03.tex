@@ -6,7 +6,7 @@
     %----------
     Auch bei dieser Laboraufgabe soll eine Betriebsschwingungsanalyse
     durchgeführt werden. Diesmal ist das Zeitsignal jedoch an mehreren, vorher
-    definierten, Punkten an der Tragfläche aufzunehmen. Für das Schleppen des
+    definierten Punkten an der Tragfläche aufzunehmen. Für das Schleppen des
     Motors kann der Versuchsaufbau der vorhergehenden Laborübung verwendet
     werden.
     \\
@@ -18,19 +18,19 @@
     Nach Aufnahme der Zeitsignale soll eine Hauptkomponentenanalyse (HKA)
     durchgeführt werden. Dies soll einmal für das gesamte Signal gemacht werden.
     In einem 2. Schritt soll die Rampe in 10 gleich große Intervalle unterteilt
-    werden. Zu jedem dieser Zeitintervalle gilt es, anschließend eine HKA
+    werden. Zu jedem dieser Zeitintervalle soll anschließend eine HKA
     durchzuführen.
 %================================================================================
 
 \section{Versuchsaufbau}
     % Versuchsaufbau genauer beschrieben
     Der Versuchsaufbau entspricht dem in Kapitel 3 beschriebenen Aufbau. Der einzige 
-    Utnerschied besteht darin, dass für die Hauptkomponentenanalyse die Daten aller 
+    Unterschied besteht darin, dass für die HKA die Daten aller 
     vier Sensoren verwendet werden. 
     \\
 
     \noindent
-    Der für die HKA verwendete Code ist im Anhang zu finden.
+    Der für die HKA verwendete Code ist in Anhang \ref{sec: Anhang_BSA} zu finden.
 %================================================================================
 
 \section{Ergebnisse}
@@ -45,7 +45,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{HKA_Gesamt.png}
+            \includegraphics[width=1\textwidth]{HKA_Gesamt.png}
             \caption{HKA kompletter Datensatz}
             \label{fig: HKA gesmat}
         \end{figure}
@@ -58,18 +58,22 @@
         \\
 
         \noindent
-        Aus den Eigenwerten wird ersichtlich, dass der zweite Mode mit dem größten Eigenwert 
-        die dominante Schwingungsform des Tragflügels ist und den größten Anteil an der 
-        Gesamtbewegung trägt. Die anderen höher frequenten Moden sind weniger stark ausgeprägt.
+        Aus den Eigenwerten wird ersichtlich, dass der \glqq Vogelmode\grqq
+        \hspace{0.05cm} die dominante Schwingungsform
+        des Tragflügels ist (da er den höchsten Eigenwert hat) und den größten
+        Anteil an der Gesamtbewegung trägt. Die anderen, höherfrequenten Moden
+        sind weniger stark ausgeprägt.
+    
     \subsection{HKA für den unterteilten Datensatz}
         Um zeitliche Veränderungen der Schwingungscharakteristik zu untersuchen, wurde die Rampe 
         in zehn gleich große Zeitintervalle unterteilt. Für jedes dieser Intervalle wurde eine 
-        separate HKA durchgeführt. 
+        separate HKA durchgeführt.
+        \\ 
 
         \noindent
         Die Ergebnisse dieser schrittweisen Analyse sind in den nachfolgenden Abbildungen dargestellt. 
         Durch den Vergleich der Eigenvektoren in den einzelnen Zeitabschnitten lassen sich mögliche 
-        Änderungen in der Schwingungscharakteristik während der Versuchsdurchführung erkennen.
+        Änderungen in der Schwingungscharakteristik aufgrund einer höherfrequenten Anregung erkennen.
 
         % Bilder - HKA für einzelne Zeitintervalle
         %--------------------------------------% Bilder - HKA für einzelne Zeitintervalle
@@ -77,7 +81,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_1.png}
+            \includegraphics[width=1\textwidth]{Datensatz_1.png}
             \caption{HKA - Intervall 1}
             \label{fig: HKA_intervall_1}
         \end{figure}
@@ -86,7 +90,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_2.png}
+            \includegraphics[width=1\textwidth]{Datensatz_2.png}
             \caption{HKA - Intervall 2}
             \label{fig: HKA_intervall_2}
         \end{figure}
@@ -95,7 +99,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_3.png}
+            \includegraphics[width=1\textwidth]{Datensatz_3.png}
             \caption{HKA - Intervall 3}
             \label{fig: HKA_intervall_3}
         \end{figure}
@@ -104,7 +108,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_4.png}
+            \includegraphics[width=1\textwidth]{Datensatz_4.png}
             \caption{HKA - Intervall 4}
             \label{fig: HKA_intervall_4}
         \end{figure}
@@ -113,7 +117,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_5.png}
+            \includegraphics[width=1\textwidth]{Datensatz_5.png}
             \caption{HKA - Intervall 5}
             \label{fig: HKA_intervall_5}
         \end{figure}
@@ -122,7 +126,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_6.png}
+            \includegraphics[width=1\textwidth]{Datensatz_6.png}
             \caption{HKA - Intervall 6}
             \label{fig: HKA_intervall_6}
         \end{figure}
@@ -131,7 +135,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_7.png}
+            \includegraphics[width=1\textwidth]{Datensatz_7.png}
             \caption{HKA - Intervall 7}
             \label{fig: HKA_intervall_7}
         \end{figure}
@@ -140,7 +144,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_8.png}
+            \includegraphics[width=1\textwidth]{Datensatz_8.png}
             \caption{HKA - Intervall 8}
             \label{fig: HKA_intervall_8}
         \end{figure}
@@ -149,7 +153,7 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_9.png}
+            \includegraphics[width=1\textwidth]{Datensatz_9.png}
             \caption{HKA - Intervall 9}
             \label{fig: HKA_intervall_9}
         \end{figure}
@@ -158,16 +162,18 @@
         %--------------------------------------
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.95\textwidth]{Datensatz_10.png}
+            \includegraphics[width=1\textwidth]{Datensatz_10.png}
             \caption{HKA - Intervall 10}
             \label{fig: HKA_intervall_10}
         \end{figure}
 
         \noindent
-        Die Ergebnisse der HKA für die zehn Zeitintervalle zeigen, wie sich die dominanten 
-        Schwingungsmoden über die Zeit verändern. Im ersten Intervall \ref{fig: HKA_intervall_1} 
-        ist der dominante Eigenvektor der Mode 1, welche einer Starrkörperbewegung entspricht. 
-        Dies ist zu erwarten, da in diesem frühen Zeitabschnitt vorwiegend niederfrequente 
-        Schwingungen auftreten. Mit zunehmender Zeit verändern sich die dominanten Moden. 
-        In späteren Intervallen nehmen die Eigenwerte der höheren Moden zu, was darauf 
-        hinweist, dass höherfrequente Schwingungen stärker ausgeprägt sind. 
+        Die Ergebnisse der HKA für die zehn Zeitintervalle zeigen, wie sich die
+        dominanten Schwingungsmoden mit der Anregungsfrequenz verändern. Im ersten
+        Intervall \ref{fig: HKA_intervall_1} ist der dominante Eigenvektor der
+        1. Mode des Modellflugzeugs. Dieser entspricht einer Starrkörperrotation
+        um die Rumpfachse. Dies ist zu erwarten, da in diesem frühen Zeitabschnitt
+        vorwiegend niederfrequente Schwingungen auftreten. Mit zunehmender Zeit
+        verändern sich die dominanten Moden. In späteren Intervallen nehmen die
+        Eigenwerte der höheren Moden zu, was darauf hinweist, dass höherfrequente
+        Schwingungen stärker ausgeprägt sind. 
